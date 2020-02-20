@@ -30,7 +30,6 @@ def parse_input(input):
         elif(i == 1):
             scores = data
         else:
-            print(i)
             books_raw = re.split(' ', rows[i+1])
             books = []
             for book in books_raw:

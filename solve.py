@@ -6,11 +6,40 @@ def main(file_path):
     #READ THE INPUT
     (dataGeneral, scores, libraries) = helpers.io_handler.read_input(file_path)
     #SOLVE THE PROBELM
-    
+    books_to_scan = [i for i in range(0, dataGeneral.B)]
+    days_left = dataGeneral.D
+
     #sort libraries by signup delay
     sorted_libs = sorted(libraries, key=lambda library: library.signup)
-    print sorted_libs
+    sorted_libs.reverse()
+    #print sorted_libs
+    signing_lib = helpers.Library(-1, -1, 0, -1, []); # dummy library
+    active_libreries = []
+    blah = 0
+    for day in xrange(days_left, 0,-1):
+        #signup new library if the signup process done
+        if(signing_lib.signup == 0):
+            #dont add the dummy library
+            if(signing_lib.index != -1):
+                active_libreries.append(signing_lib)
+            #add new lib to signup queue
+            if(len(sorted_libs) > 0):
+                signing_lib = sorted_libs.pop()
+        #first day counts as signup day
+        signing_lib.signup -= 1
+        #push books in each active library
+        for lib in active_libreries:
+            books_to_push = lib.shipping
+            #push as many books as possible from a single library
+            for i in xrange(books_to_push):
+                if(len(lib.books) > 0):
+                    book = lib.books.pop()
+                    lib.shipped_books.append(book)
+        blah += 1
 
+    print(active_libreries)
+    print([lib.shipped_books for lib in active_libreries])
+    
     #WRITE THE OUTPUT
     return NotImplemented
 
