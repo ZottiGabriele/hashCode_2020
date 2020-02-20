@@ -45,7 +45,7 @@ def write_output(output, input_path):
     file_name = input_path.split(os.path.sep)[::-1][0][:-3] + ".out"
     output_path = "outputs" + os.path.sep + file_name
     file = open(output_path, "w")
-    file.write(str(output.K) + "\n")
+    file.write(str(output.A) + "\n")
     file.write(output.data + "\n")
     file.close()
     print "Output written at " + output_path

@@ -31,3 +31,8 @@ class DataGeneral():
     
     def __repr__(self):
         return "DataGeneral <B:" + str(self.B) + ", L:" + str(self.L) + ", D:" + str(self.D) + ">"
+
+class OutputData:
+    def __init__(self, A, data):
+        self.A = A
+        self.data = data
