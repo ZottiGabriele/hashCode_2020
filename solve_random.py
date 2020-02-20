@@ -16,6 +16,7 @@ def main(file_path):
     #print sorted_libs
     signing_lib = helpers.Library(-1, -1, 0, -1, []); # dummy library
     active_libreries = []
+    used_libraries = []
     for day in xrange(days_left, 0,-1):
         print("DAY " + str(day))
         #signup new library if the signup process done
@@ -24,6 +25,7 @@ def main(file_path):
             if(signing_lib.index != -1):
                 random.shuffle(signing_lib.books)
                 active_libreries.append(signing_lib)
+                used_libraries.append(signing_lib)
             #add new lib to signup queue
             if(len(sorted_libs) > 0):
                 signing_lib = sorted_libs.pop()
@@ -37,6 +39,9 @@ def main(file_path):
                 if(len(lib.books) > 0):
                     book = lib.books.pop()
                     lib.shipped_books.append(book)
+                else:
+                    active_libreries.remove(lib)
+                    break
     
     #WRITE THE OUTPUT
     helpers.write_output(active_libreries, file_path)
