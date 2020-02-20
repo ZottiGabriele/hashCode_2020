@@ -15,8 +15,8 @@ def main(file_path):
     #print sorted_libs
     signing_lib = helpers.Library(-1, -1, 0, -1, []); # dummy library
     active_libreries = []
-    blah = 0
     for day in xrange(days_left, 0,-1):
+        print("DAY " + str(day))
         #signup new library if the signup process done
         if(signing_lib.signup == 0):
             #dont add the dummy library
@@ -35,12 +35,13 @@ def main(file_path):
                 if(len(lib.books) > 0):
                     book = lib.books.pop()
                     lib.shipped_books.append(book)
-        blah += 1
 
     print(active_libreries)
     print([lib.shipped_books for lib in active_libreries])
     
     #WRITE THE OUTPUT
+    helpers.write_output(active_libreries, file_path)
+
     return NotImplemented
 
 if __name__ == "__main__":
