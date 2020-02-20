@@ -17,11 +17,27 @@ def read_input(file_path):
 
 def parse_input(input):
     print "Parsing Input..."
-    data = re.split(' |\n', input)
-    M = data[0]
-    N = data[1]
-    
-    return NotImplemented
+    rows = re.split('\n', input)
+    dataGeneral = 0
+    scores = []
+    libraries = []
+    i = 0
+    while i < len(rows)-1:
+        data = re.split(' ', rows[i])
+        if(i == 0):
+            dataGeneral = data_struct.DataGeneral(data[0], data[1], data[2])
+        elif(i == 1):
+            scores = data
+        else:
+            print(i)
+            books_raw = re.split(' ', rows[i+1])
+            books = []
+            for book in books_raw:
+                books.append(data_struct.Book(int(book), int(scores[int(book)])))
+            libraries.append(data_struct.Library(int(data[0]), int(data[1]), int(data[2]), books))
+            i += 1
+        i += 1
+    return (dataGeneral, scores, libraries)
 
 def write_output(output, input_path):
     file_name = input_path.split(os.path.sep)[::-1][0][:-3] + ".out"
