@@ -5,7 +5,7 @@ import sortedcontainers
 def main(file_path):
     #READ THE INPUT
     (dataGeneral, scores, libraries) = helpers.io_handler.read_input(file_path)
-    print((dataGeneral, scores, libraries))
+    print((dataGeneral), (scores), (libraries))
     #SOLVE THE PROBELM
     
 
