@@ -21,7 +21,7 @@ class Library():
         self.books = books
     
     def __repr__(self):
-        return "Library <index:" + str(self.index) + ", no_books:" + str(self.no_books) + ", signup:" + str(self.signup) + ", shipping" + str(self.shipping) + ", books" + str(self.books) + ">"
+        return "Library <index:" + str(self.index) + "no_books:" + str(self.no_books) + "signup:" + str(self.signup) + "shipping" + str(self.shipping) + ">"
 
 class DataGeneral():
     def __init__(self, B, L, D):

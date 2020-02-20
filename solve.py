@@ -5,9 +5,11 @@ import sortedcontainers
 def main(file_path):
     #READ THE INPUT
     (dataGeneral, scores, libraries) = helpers.io_handler.read_input(file_path)
-    print((dataGeneral), (scores), (libraries))
     #SOLVE THE PROBELM
     
+    #sort libraries by signup delay
+    sorted_libs = sorted(libraries, key=lambda library: library.signup)
+    print sorted_libs
 
     #WRITE THE OUTPUT
     return NotImplemented

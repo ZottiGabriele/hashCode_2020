@@ -23,7 +23,7 @@ def parse_input(input):
     libraries = []
     i = 0
     lib_index = 0
-    while i < len(rows)-1:
+    while i < len(rows)-2:
         data = re.split(' ', rows[i])
         if(i == 0):
             dataGeneral = data_struct.DataGeneral(data[0], data[1], data[2])
