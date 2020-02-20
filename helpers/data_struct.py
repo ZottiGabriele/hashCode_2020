@@ -10,17 +10,18 @@ class Book():
         self.score = int(score)
     
     def __repr__(self):
-        return "index:" + str(self.index) + ", score:" + str(self.score)
+        return "Book <index:" + str(self.index) + ", score:" + str(self.score) + ">"
 
 class Library():
-    def __init__(self, no_books, signup, shipping, books):
+    def __init__(self, index, no_books, signup, shipping, books):
+        self.index = int(index)
         self.no_books = int(no_books)
         self.signup = int(signup)
         self.shipping = int(shipping)
         self.books = books
     
     def __repr__(self):
-        return "no_books:" + str(self.no_books) + ", signup:" + str(self.signup) + ", shipping" + str(self.shipping) + ", books" + str(self.books)
+        return "Library <index:" + str(self.index) + ", no_books:" + str(self.no_books) + ", signup:" + str(self.signup) + ", shipping" + str(self.shipping) + ", books" + str(self.books) + ">"
 
 class DataGeneral():
     def __init__(self, B, L, D):
@@ -29,4 +30,4 @@ class DataGeneral():
         self.D = D
     
     def __repr__(self):
-        return "B:" + str(self.B) + ", L:" + str(self.L) + ", D:" + str(self.D)
+        return "DataGeneral <B:" + str(self.B) + ", L:" + str(self.L) + ", D:" + str(self.D) + ">"

@@ -22,6 +22,7 @@ def parse_input(input):
     scores = []
     libraries = []
     i = 0
+    lib_index = 0
     while i < len(rows)-1:
         data = re.split(' ', rows[i])
         if(i == 0):
@@ -34,7 +35,8 @@ def parse_input(input):
             books = []
             for book in books_raw:
                 books.append(data_struct.Book(int(book), int(scores[int(book)])))
-            libraries.append(data_struct.Library(int(data[0]), int(data[1]), int(data[2]), books))
+            libraries.append(data_struct.Library(lib_index, int(data[0]), int(data[1]), int(data[2]), books))
+            lib_index += 1
             i += 1
         i += 1
     return (dataGeneral, scores, libraries)
