@@ -1,10 +1,10 @@
 import sys
-import helpers
+from helpers import io_handler, data_struct
 import sortedcontainers
 
 def main(file_path):
     #READ THE INPUT
-    (dataGeneral, scores, libraries) = helpers.io_handler.read_input(file_path)
+    (dataGeneral, scores, libraries) = io_handler.read_input(file_path)
     #SOLVE THE PROBELM
     books_to_scan = [i for i in range(0, dataGeneral.B)]
     days_left = dataGeneral.D
@@ -13,7 +13,7 @@ def main(file_path):
     sorted_libs = sorted(libraries, key=lambda library: library.signup)
     sorted_libs.reverse()
     #print sorted_libs
-    signing_lib = helpers.Library(-1, -1, 0, -1, []); # dummy library
+    signing_lib = data_struct.Library(-1, -1, 0, -1, []) # dummy library
     active_libreries = []
     used_libraries = []
     for day in xrange(days_left, 0,-1):
@@ -42,7 +42,7 @@ def main(file_path):
                     break
     
     #WRITE THE OUTPUT
-    helpers.write_output(used_libraries, file_path)
+    io_handler.write_output(used_libraries, file_path)
 
 if __name__ == "__main__":
     if (len(sys.argv) < 2):

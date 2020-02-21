@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["./inputs/c_incunabula.txt"]
+            // "args": ["./inputs/c_incunabula.txt"]
         }
     ]
 }
