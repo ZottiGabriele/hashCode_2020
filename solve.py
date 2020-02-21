@@ -33,7 +33,6 @@ def main(file_path):
         for lib in active_libreries:
             books_to_push = lib.shipping
             #push as many books as possible from a single library
-            
             for i in xrange(books_to_push):
                 if(len(lib.books) > 0):
                     book = lib.books.pop()
@@ -44,8 +43,6 @@ def main(file_path):
     
     #WRITE THE OUTPUT
     helpers.write_output(used_libraries, file_path)
-
-    return NotImplemented
 
 if __name__ == "__main__":
     if (len(sys.argv) < 2):
